@@ -1,0 +1,24 @@
+#!/bin/sh
+
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev
+mount -t tmpfs tmpfs /tmp
+chmod 1777 /tmp
+
+hostname "$(cat /etc/hostname)"
+
+echo "[LAB02] Loading lab2_driver..."
+if [ -f /lib/modules/5.15.0/lab2_driver.ko ]; then
+    if insmod /lib/modules/5.15.0/lab2_driver.ko; then
+        [ -c /dev/lab2 ] || mknod /dev/lab2 c 240 0
+        chmod 666 /dev/lab2
+        echo "[LAB02] lab2_driver loaded OK"
+    else
+        echo "[LAB02] ERROR: cannot load lab2_driver"
+    fi
+else
+    echo "[LAB02] ERROR: lab2_driver.ko not found"
+fi
+
+echo "Welcome to LAB02 Embedded Linux"
