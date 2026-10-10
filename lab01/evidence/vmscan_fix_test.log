@@ -1,0 +1,16 @@
+  CC      scripts/mod/empty.o
+  MKELF   scripts/mod/elfconfig.h
+  HOSTCC  scripts/mod/modpost.o
+scripts/mod/modpost.c: In function ‘match’:
+scripts/mod/modpost.c:842:38: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  842 |                         char *here = strstr(sym, bare);
+      |                                      ^~~~~~
+  CC      scripts/mod/devicetable-offsets.s
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTCC  scripts/mod/sumversion.o
+  HOSTLD  scripts/mod/modpost
+  CC      kernel/bounds.s
+  CC      arch/arm/kernel/asm-offsets.s
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  CC      mm/vmscan.o
