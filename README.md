@@ -1,66 +1,78 @@
 # LOS201 – Embedded Linux Systems
 
-Group coursework repository for LOS201 at FPT University.
+Group coursework repository for **LOS201 – Embedded Linux Systems**
+at **FPT University**.
 
-This repository contains source code, configuration files, reports,
-practical evidence, and progress updates from each team member.
+This repository contains our lab work, assignment projects, source code,
+configuration files, reports, and supporting evidence.
 
 ## Team Members
 
-| Full Name | GitHub | Working Branch |
-|---|---|---|
-| Trần Thiên Phúc | [phuctran2001](https://github.com/phuctran2001) | `phuc` |
-| Nguyễn Huy Hoàng | [Elvihams](https://github.com/Elvihams) | `hoang` |
-| Đinh Quang Ngọc | To be added | `ngoc` |
-
-Each member will create their working branch when they begin contributing.
-
-## Coursework
-
-- LAB01: Build an ARMv7 Embedded Linux system.
-- LAB02: Device drivers and the JFFS2 filesystem.
-- LAB03: Details will be added based on the lab requirements.
-- Assignments 1–2: Details will be added based on the assignment requirements.
-
-## Current Progress
-
-| Member | Status |
+| Full Name | GitHub |
 |---|---|
-| Trần Thiên Phúc | LAB01 and LAB02 practical work completed; files are being checked before upload. LAB03 and Assignments 1–2 have not been started. |
-| Nguyễn Huy Hoàng | Awaiting the member's progress update. |
-| Đinh Quang Ngọc | Awaiting the member's progress update. |
+| Trần Thiên Phúc | [phuctran2001](https://github.com/phuctran2001) |
+| Nguyễn Huy Hoàng | [Elvihams](https://github.com/Elvihams) |
+| Đinh Quang Ngọc | To be added |
+| Võ Quốc Thịnh | To be added |
 
-Progress will be updated as work continues.
+**Repository owner:** Trần Thiên Phúc.
 
-## Collaboration Workflow
+GitHub accounts for the remaining members will be added when available.
 
-1. Clone the repository and create a personal working branch.
-2. Use your own Git name and email for commits.
-3. Commit and push meaningful progress to your working branch.
-4. Open a Pull Request targeting `main`, describing your changes
-   and verification results.
-5. Review the changes together before merging into `main`.
+## Course Content
 
-The `main` branch contains reviewed and integrated work.
-Team members should not push coursework directly to `main`.
+The repository covers practical coursework in embedded Linux, including:
 
-## Progress Updates
+- Building an ARMv7 embedded Linux system.
+- Working with the Linux kernel, U-Boot, and BusyBox.
+- Preparing a root filesystem and startup scripts.
+- Running and testing an embedded Linux system with QEMU.
+- Developing a Linux character device driver.
+- Working with device interfaces in `/dev`, `/proc`, and `/sys`.
+- Creating and testing a JFFS2 filesystem image.
 
-Each update should describe:
+Additional coursework will be added as the course continues.
 
-- Work completed.
-- Test results or supporting evidence.
-- Current issues, if any.
-- Next steps.
+## Labs and Assignments
 
-Commit messages and Pull Requests should clearly explain the contribution.
+| Coursework | Description |
+|---|---|
+| [LAB01](lab01/) | Building an ARMv7 embedded Linux system |
+| [LAB02](lab02/) | Linux device driver and JFFS2 filesystem |
+| LAB03 | Materials will be added when available |
+| Assignment 1 | Materials will be added when available |
+| Assignment 2 | Materials will be added when available |
+
+## Repository Organization
+
+Each lab or assignment contains the relevant materials, such as:
+
+- **Source code:** programs, drivers, and build files.
+- **Configurations:** kernel and BusyBox configuration files.
+- **Scripts:** startup and supporting scripts.
+- **Evidence:** selected logs and practical results.
+- **Reports:** Word and PDF documents.
+
+Reports for the uploaded labs are available here:
+
+- [LAB01 reports](lab01/report/)
+- [LAB02 reports](lab02/report/)
+
+This repository stores selected coursework materials.
+Complete upstream source trees and build environments are not included.
+
+## Collaboration
+
+Each member contributes using their own GitHub account and working branch.
+
+Changes are recorded in meaningful commits and pushed regularly as work
+progresses. Pull requests are used to review and merge contributions into
+the `main` branch.
+
+Commit history and pull requests document individual contributions.
 
 ## Previously Completed Work
 
-Phúc completed the LAB01 and LAB02 practical work before this group
-repository was created.
-
-Commits that add these files record their submission to this repository.
-They do not represent the full earlier development process.
-
-Future coursework will be committed progressively as the work is performed.
+LAB01 and LAB02 were completed by Trần Thiên Phúc before this group
+repository was created and were subsequently uploaded as archived work.
+Later coursework will be recorded incrementally during development.
