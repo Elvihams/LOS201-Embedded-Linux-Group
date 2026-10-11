@@ -1,0 +1,111 @@
+=== TASK 1: ioctl character driver ===
+
+asgn1_driver: loading out-of-tree module taints kernel.
+
+asgn1: loaded major=241 mode=1
+
+crw-------    1 0        0         241,   0 Oct 10 19:07 /dev/asgn1
+
+[1] Default echo mode: write and read
+
+asgn1: ioctl unknown command=0x5401
+
+asgn1: write 5 bytes, mode=1, stored=5
+
+asgn1: read 5 bytes
+
+read: [hello]
+
+[2] ioctl tests, both modes and reset
+
+asgn1: ioctl GET_VERSION
+
+GET_VERSION: asgn1_driver v1.0 - SE203347
+
+asgn1: ioctl SET_MODE
+
+SET_MODE: 0 (prefix)
+
+asgn1: write 3 bytes, mode=0, stored=11
+
+asgn1: read 11 bytes
+
+READ OK: [[KERNEL]abc], length=11
+
+asgn1: ioctl GET_STATS
+
+GET_STATS: open_count=5 write_count=2 read_count=2 buffer_len=11 last_write_size=3
+
+asgn1: ioctl SET_MODE
+
+SET_MODE: 1 (echo)
+
+asgn1: ioctl SET_MODE
+
+INVALID MODE: EINVAL OK
+
+asgn1: write 3 bytes, mode=1, stored=3
+
+asgn1: read 3 bytes
+
+READ OK: [xyz], length=3
+
+asgn1: ioctl RESET_BUFFER
+
+RESET_BUFFER: called
+
+READ OK: [], length=0
+
+asgn1: ioctl GET_STATS
+
+AFTER RESET: open_count=8 write_count=0 read_count=0 buffer_len=0 last_write_size=0
+
+asgn1: ioctl unknown command=0x4163
+
+UNKNOWN COMMAND: ENOTTY OK
+
+TASK 1 TEST PASSED
+
+[3] Buffer must be empty after RESET
+
+empty buffer OK
+
+[4] Unload and inspect cleanup log
+
+asgn1: unloaded
+
+asgn1: loaded major=241 mode=1
+
+asgn1: ioctl unknown command=0x5401
+
+asgn1: write 5 bytes, mode=1, stored=5
+
+asgn1: read 5 bytes
+
+asgn1: ioctl GET_VERSION
+
+asgn1: ioctl SET_MODE
+
+asgn1: write 3 bytes, mode=0, stored=11
+
+asgn1: read 11 bytes
+
+asgn1: ioctl GET_STATS
+
+asgn1: ioctl SET_MODE
+
+asgn1: ioctl SET_MODE
+
+asgn1: write 3 bytes, mode=1, stored=3
+
+asgn1: read 3 bytes
+
+asgn1: ioctl RESET_BUFFER
+
+asgn1: ioctl GET_STATS
+
+asgn1: ioctl unknown command=0x4163
+
+asgn1: unloaded
+
+TASK 1 SCRIPT PASSED
