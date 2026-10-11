@@ -6,11 +6,13 @@ cd "$(dirname "$0")"
 root=$(pwd)
 parent=$(dirname "$root")
 name=$(basename "$root")
-expected=SE203347_NguyenHuyHoang_Asgn01
+expected='Assignment name=$(basename "$root")
+expected='Assignment 1'
 if [ "$name" != "$expected" ]; then
     echo "Tên thư mục phải là $expected" >&2
     exit 1
 fi
+name=SE203347_NguyenHuyHoang_Asgn01
 
 required='task1_ioctl/asgn1_driver.c
 task1_ioctl/asgn1_ioctl.h
