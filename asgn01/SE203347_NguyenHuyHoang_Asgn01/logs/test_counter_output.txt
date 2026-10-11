@@ -1,0 +1,89 @@
+=== TASK 2: misc counter device ===
+
+counter_driver: loaded major=10 minor=125
+
+crw-------    1 0        0          10, 125 Oct 10 19:07 /dev/counter
+
+[1] Before write
+
+counter: 0
+
+total_reads: 0
+
+total_writes: 0
+
+counter_driver: read value=0 next=1
+
+counter_driver: read value=1 next=2
+
+read sequence: 0, 1
+
+[2] Set 100
+
+counter_driver: write set=100
+
+counter: 100
+
+total_reads: 2
+
+total_writes: 1
+
+counter_driver: read value=100 next=101
+
+read after write: 100
+
+[3] Reset to zero
+
+counter_driver: write set=0
+
+counter: 0
+
+total_reads: 3
+
+total_writes: 2
+
+counter_driver: read value=0 next=1
+
+read after reset: 0
+
+[4] Reject negative and invalid input
+
+invalid inputs rejected
+
+counter: 1
+
+total_reads: 4
+
+total_writes: 2
+
+[5] Partial reads: one increment per open
+
+counter_driver: write set=100
+
+counter_driver: read value=100 next=101
+
+PARTIAL READ OK: line=[100\n], counter=101 reads=5 writes=3
+
+counter_driver: unloaded
+
+counter_driver: loaded major=10 minor=125
+
+counter_driver: read value=0 next=1
+
+counter_driver: read value=1 next=2
+
+counter_driver: write set=100
+
+counter_driver: read value=100 next=101
+
+counter_driver: write set=0
+
+counter_driver: read value=0 next=1
+
+counter_driver: write set=100
+
+counter_driver: read value=100 next=101
+
+counter_driver: unloaded
+
+TASK 2 SCRIPT PASSED

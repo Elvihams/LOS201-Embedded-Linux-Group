@@ -1,0 +1,60 @@
+Dmesg excerpts printed by both test scripts in qemu_session.txt.
+This is not a complete kernel ring-buffer dump.
+
+=== TASK 1 ===
+asgn1: loaded major=241 mode=1
+asgn1: ioctl unknown command=0x5401
+asgn1: write 5 bytes, mode=1, stored=5
+asgn1: read 5 bytes
+asgn1: ioctl GET_VERSION
+asgn1: ioctl SET_MODE
+asgn1: write 3 bytes, mode=0, stored=11
+asgn1: read 11 bytes
+asgn1: ioctl GET_STATS
+asgn1: ioctl SET_MODE
+asgn1: ioctl SET_MODE
+asgn1: write 3 bytes, mode=1, stored=3
+asgn1: read 3 bytes
+asgn1: ioctl RESET_BUFFER
+asgn1: ioctl GET_STATS
+asgn1: ioctl unknown command=0x4163
+asgn1: unloaded
+asgn1: loaded major=241 mode=1
+asgn1: ioctl unknown command=0x5401
+asgn1: write 5 bytes, mode=1, stored=5
+asgn1: read 5 bytes
+asgn1: ioctl GET_VERSION
+asgn1: ioctl SET_MODE
+asgn1: write 3 bytes, mode=0, stored=11
+asgn1: read 11 bytes
+asgn1: ioctl GET_STATS
+asgn1: ioctl SET_MODE
+asgn1: ioctl SET_MODE
+asgn1: write 3 bytes, mode=1, stored=3
+asgn1: read 3 bytes
+asgn1: ioctl RESET_BUFFER
+asgn1: ioctl GET_STATS
+asgn1: ioctl unknown command=0x4163
+asgn1: unloaded
+
+=== TASK 2 ===
+counter_driver: loaded major=10 minor=125
+counter_driver: read value=0 next=1
+counter_driver: read value=1 next=2
+counter_driver: write set=100
+counter_driver: read value=100 next=101
+counter_driver: write set=0
+counter_driver: read value=0 next=1
+counter_driver: write set=100
+counter_driver: read value=100 next=101
+counter_driver: unloaded
+counter_driver: loaded major=10 minor=125
+counter_driver: read value=0 next=1
+counter_driver: read value=1 next=2
+counter_driver: write set=100
+counter_driver: read value=100 next=101
+counter_driver: write set=0
+counter_driver: read value=0 next=1
+counter_driver: write set=100
+counter_driver: read value=100 next=101
+counter_driver: unloaded
