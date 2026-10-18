@@ -5,12 +5,7 @@ set -eu
 cd "$(dirname "$0")"
 root=$(pwd)
 parent=$(dirname "$root")
-name=$(basename "$root")
 expected=SE203347_NguyenHuyHoang_Asgn01
-if [ "$name" != "$expected" ]; then
-    echo "Tên thư mục phải là $expected" >&2
-    exit 1
-fi
 
 required='task1_ioctl/asgn1_driver.c
 task1_ioctl/asgn1_ioctl.h
@@ -42,9 +37,9 @@ if [ "$missing" -ne 0 ]; then
 fi
 
 for spec in 'logs/test_asgn1_output.txt:TASK 1 SCRIPT PASSED' \
-            'logs/test_counter_output.txt:TASK 2 SCRIPT PASSED' \
-            'logs/dmesg_full.txt:asgn1:' \
-            'logs/dmesg_full.txt:counter_driver:'; do
+           'logs/test_counter_output.txt:TASK 2 SCRIPT PASSED' \
+           'logs/dmesg_full.txt:asgn1:' \
+           'logs/dmesg_full.txt:counter_driver:'; do
     f=${spec%%:*}
     marker=${spec#*:}
     if ! grep -Fq "$marker" "$f"; then
@@ -55,20 +50,19 @@ done
 
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT HUP INT TERM
-mkdir -p "$tmp/$name/task1_ioctl" "$tmp/$name/task2_misc" \
-         "$tmp/$name/logs" "$tmp/$name/bao_cao"
+mkdir -p "$tmp/$expected/task1_ioctl" "$tmp/$expected/task2_misc" \
+         "$tmp/$expected/logs" "$tmp/$expected/bao_cao"
 for item in $required; do
-    cp "$root/$item" "$tmp/$name/$item"
+    cp "$root/$item" "$tmp/$expected/$item"
 done
 IFS=$oldifs
 # Giữ chương trình C test và file hướng dẫn để người chấm có thể tái lập.
 for item in task1_ioctl/asgn1_test.c task2_misc/counter_test.c \
             logs/qemu_session.txt README.md; do
-    [ ! -f "$item" ] || cp "$root/$item" "$tmp/$name/$item"
+    [ ! -f "$item" ] || cp "$root/$item" "$tmp/$expected/$item"
 done
 
-archive="$parent/$name.tar.gz"
-tar -C "$tmp" -czf "$archive" "$name"
+archive="$root/$expected.tar.gz"
+tar -C "$tmp" -czf "$archive" "$expected"
 echo "Đã tạo: $archive"
 echo "PDF nộp riêng: $root/bao_cao/SE203347_NguyenHuyHoang_Asgn01_BaoCao.pdf"
-tar -tzf "$archive"

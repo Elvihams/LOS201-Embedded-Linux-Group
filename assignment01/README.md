@@ -2,9 +2,9 @@
 
 Bộ nguồn này dựa trên cấu trúc driver LAB-02 của Nguyễn Huy Hoàng
 (major 240, kernel 5.15, ARMv7), nhưng có hai module riêng. Hai script đã
-chạy PASS trong QEMU theo transcript sinh viên gửi. Thư mục trao đổi này có
-source, báo cáo PDF, log hai script và transcript; **chưa chứa** hai `.ko`,
-binary test ARM, initramfs đã boot trên máy sinh viên, hoặc `dmesg_full.txt`.
+chạy PASS trong QEMU theo transcript sinh viên gửi. Thư mục này đã có đầy đủ source,
+báo cáo PDF, log hai script, transcript, hai module kernel `.ko` (asgn1_driver.ko, counter_driver.ko),
+binary test ARM (asgn1_test, counter_test), và bản dump kernel đầy đủ `logs/dmesg_full.txt`.
 Các artifact biên dịch ở trên Ubuntu của sinh viên phải được chép vào bộ nộp.
 Không đổi tên binary host thành binary ARM hoặc gọi trích đoạn dmesg là log đầy đủ.
 
@@ -20,8 +20,8 @@ Không đổi tên binary host thành binary ARM hoặc gọi trích đoạn dme
   trình bày cả bốn task và phụ lục output test.
 - `logs/test_asgn1_output.txt`, `logs/test_counter_output.txt`: output tách
   từ transcript QEMU; `logs/qemu_session.txt` là transcript gốc.
-- `logs/dmesg_excerpt.txt`: riêng các dòng driver đã thu được, **không phải**
-  bản dump đầy đủ của kernel ring buffer.
+- `logs/dmesg_full.txt`: bản dump đầy đủ của kernel ring buffer trong QEMU ghi nhận toàn bộ quá trình test driver.
+- `task1_ioctl/asgn1_driver.ko`, `task2_misc/counter_driver.ko`: hai module kernel ARMv7 đã biên dịch sẵn.
 
 ## 2. Build trên Ubuntu host
 

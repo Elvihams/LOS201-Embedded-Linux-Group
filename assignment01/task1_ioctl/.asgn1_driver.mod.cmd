@@ -1,0 +1,1 @@
+cmd_/home/huyhoang/LOS201-Embedded-Linux-Group/assignment01/task1_ioctl/asgn1_driver.mod := { echo  /home/huyhoang/LOS201-Embedded-Linux-Group/assignment01/task1_ioctl/asgn1_driver.o;  echo; } > /home/huyhoang/LOS201-Embedded-Linux-Group/assignment01/task1_ioctl/asgn1_driver.mod
