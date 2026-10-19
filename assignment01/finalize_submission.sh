@@ -1,5 +1,3 @@
-#!/bin/sh
-# Kiểm tra bằng chứng và đóng gói đúng tên nộp bài; không tự tạo log/binary.
 set -eu
 
 cd "$(dirname "$0")"
@@ -11,10 +9,12 @@ required='task1_ioctl/asgn1_driver.c
 task1_ioctl/asgn1_ioctl.h
 task1_ioctl/Makefile
 task1_ioctl/asgn1_driver.ko
+task1_ioctl/asgn1_test
 task1_ioctl/test_asgn1.sh
 task2_misc/counter_driver.c
 task2_misc/Makefile
 task2_misc/counter_driver.ko
+task2_misc/counter_test
 task2_misc/test_counter.sh
 logs/test_asgn1_output.txt
 logs/test_counter_output.txt
@@ -32,7 +32,7 @@ for item in $required; do
 done
 IFS=$oldifs
 if [ "$missing" -ne 0 ]; then
-    echo 'Hãy chép .ko từ Ubuntu và thu dmesg đầy đủ trong QEMU trước khi nén.' >&2
+    echo 'Hãy chép .ko và binary test từ Ubuntu trước khi nén.' >&2
     exit 1
 fi
 
@@ -56,7 +56,7 @@ for item in $required; do
     cp "$root/$item" "$tmp/$expected/$item"
 done
 IFS=$oldifs
-# Giữ chương trình C test và file hướng dẫn để người chấm có thể tái lập.
+# Giữ thêm file C và tài liệu hướng dẫn
 for item in task1_ioctl/asgn1_test.c task2_misc/counter_test.c \
             logs/qemu_session.txt README.md; do
     [ ! -f "$item" ] || cp "$root/$item" "$tmp/$expected/$item"
